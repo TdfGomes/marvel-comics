@@ -1,7 +1,7 @@
 import 'whatwg-fetch'
-import {useEffect, useState} from 'react'
-import {API_URL} from '../utils/constants'
-import {Comic, UseComics} from './Comic'
+import { useEffect, useState } from 'react'
+import { API_URL } from '../utils/constants'
+import { Comic, UseComics } from './Comic'
 
 export function useComics(): UseComics{
   const [isLoading,setLoading] = useState(true)
@@ -13,14 +13,17 @@ export function useComics(): UseComics{
       const response = await fetch(`${API_URL}/comics?offset=${offset}`)
       const data = await response.json()
       
-      setComics(await data.data.results)
+      setComics((prevComics) => ([
+        ...prevComics,
+        ...data.data.results
+      ]))
       setLoading(false)
     }
     getComics()
   }, [offset])
 
   function loadMore(){
-    setOffset(21)
+    setOffset(20 + offset)
   }
   
   return { isLoading, data: comics, offset, loadMore }

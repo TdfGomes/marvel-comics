@@ -16,7 +16,7 @@ const options: Options = {
   pathRewrite: (path: string) => {
     const sliptedPath = path.split(/^\/api|\?/);
     const queryString = sliptedPath.length > 2 ? `&${sliptedPath.pop()}` : "";
-    const auth = `?ts=${ts}&apikey=${process.env.PUB_KEY}&hash=${hash}${queryString}`;
+    const auth = `?format=comic&noVariants=true&ts=${ts}&apikey=${process.env.PUB_KEY}&hash=${hash}${queryString}`;
 
     const newPath: string | undefined = sliptedPath[1]?.concat(auth) || path;
 
