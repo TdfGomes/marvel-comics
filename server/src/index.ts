@@ -1,12 +1,6 @@
 import express from "express";
-import {
-  createProxyMiddleware,
-  // Filter,
-  // Options,
-  // RequestHandler,
-} from "http-proxy-middleware";
+import { createProxyMiddleware, Options } from "http-proxy-middleware";
 import crypto from "crypto";
-// import bodyParser from "body-parser";
 import cors from "cors";
 import "./lib";
 
@@ -16,17 +10,15 @@ const hash: string = crypto.createHash("md5").update(data).digest("hex");
 
 const app = express();
 
-const options = {
+const options: Options = {
   target: "http://gateway.marvel.com/v1/public",
   changeOrigin: true,
   pathRewrite: (path: string) => {
-    const auth = `?ts=${ts}&apikey=${process.env.PUB_KEY}&hash=${hash}`;
+    const sliptedPath = path.split(/^\/api|\?/);
+    const queryString = sliptedPath.length > 2 ? `&${sliptedPath.pop()}` : "";
+    const auth = `?ts=${ts}&apikey=${process.env.PUB_KEY}&hash=${hash}${queryString}`;
 
-    const newPath: string | undefined =
-      path
-        .split(/^\/api/)
-        .pop()
-        ?.concat(auth) || path;
+    const newPath: string | undefined = sliptedPath[1]?.concat(auth) || path;
 
     return newPath;
   },
