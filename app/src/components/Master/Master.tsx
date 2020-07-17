@@ -1,7 +1,10 @@
 import React from 'react'
-import {Link,useRouteMatch} from 'react-router-dom'
+import {useRouteMatch} from 'react-router-dom'
 import { useComics } from '../../hooks'
 import { Comic, UseComics } from '../../hooks/Comic'
+
+import {Ul, Li} from '../UI/Lists'
+import Link from '../UI/Link'
 
 function Master(){
   const { data, isLoading, loadMore }: UseComics = useComics()
@@ -11,10 +14,14 @@ function Master(){
 
   return (
     <>
-    <ul>
-      {data.map(({id,title}: Comic) => <li key={id}><Link to={`${url}/${id}`}>{title}</Link>)</li>)}
-    </ul>
-    <button onClick={() => loadMore()}>Load More</button>
+      <Ul>
+        {data.map(({ id, title }: Comic, idx) => (
+          <Li key={`${idx}/${id}`}>
+            <Link to={`${url}/${id}`}>{title}</Link>)
+          </Li>
+        ))}
+      </Ul>
+      <button onClick={() => loadMore()}>Load More</button>
     </>
   )
     
