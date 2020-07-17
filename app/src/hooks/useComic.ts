@@ -1,9 +1,9 @@
 import 'whatwg-fetch'
 import { useEffect, useState } from 'react'
 import { API_URL } from '../utils/constants'
-import { Comic, UseComics } from './Comic'
+import { Comic, UseComic } from './Comic'
 
-export function useComic(id:number): UseComics {
+export function useComic(id:number): UseComic {
   const [isLoading, setLoading] = useState(true)
   const [comics, setComics] = useState<Comic[]>([])
   useEffect(() => {

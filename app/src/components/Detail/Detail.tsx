@@ -1,11 +1,11 @@
 import React from 'react'
 import {useParams} from 'react-router-dom'
 import {useComic} from '../../hooks'
-import {Comic, UseComics} from '../../hooks/Comic'
+import {Comic, UseComic} from '../../hooks/Comic'
 
 function Detail(){
   const {id} = useParams()
-  const {data,isLoading}:UseComics = useComic(id)
+  const {data,isLoading}:UseComic = useComic(id)
   
   if (isLoading) return <span>Is Loading....</span>
   

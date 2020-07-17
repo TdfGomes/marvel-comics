@@ -22,13 +22,17 @@ export interface Comic {
   images: Image[]
   urls: URL[]
 }
-export interface UseComics {
+export interface UseComic {
   isLoading: Boolean
   data: Comic[] 
 }
-// export interface ApiResponse {
-//   offset: number
-//   limit: number
-//   total: number
-//   results: Comic[]
-// }
+export interface UseComics extends UseComic {
+  offset: number
+  loadMore: Function
+}
+export interface ApiResponse {
+  offset: number
+  limit: number
+  total: number
+  results: Comic[]
+}
