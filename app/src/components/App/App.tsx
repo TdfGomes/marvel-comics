@@ -10,9 +10,9 @@ function App() {
       <Router>
         <div className="app_container">
           <Switch>
-            <Route path="/">
+            <Route path="/comics">
               <Master/>
-              <Route path="/:id" component={Detail}/>
+              <Route path="/comics/:id" component={Detail}/>
             </Route>
           </Switch>
         </div>
