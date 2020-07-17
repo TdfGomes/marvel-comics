@@ -1,0 +1,1 @@
+export { useComics } from './useComics'
