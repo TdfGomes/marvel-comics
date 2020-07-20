@@ -1,3 +1,4 @@
+import React from 'react'
 import styled from "styled-components";
 import {
   space,
@@ -25,7 +26,9 @@ TypographyProps,
 BorderProps,
 ShadowProps,
 LayoutProps,
-PositionProps{}
+PositionProps{
+  as?: React.ElementType | keyof JSX.IntrinsicElements
+}
 
 const Box = styled('div')<BoxProps>(
   {
