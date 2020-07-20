@@ -20,6 +20,7 @@ export interface Comic {
   title: string
   prices: Price[]
   images: Image[]
+  thumbnail: Image
   urls: URL[]
 }
 export interface UseComic {

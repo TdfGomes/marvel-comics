@@ -23,7 +23,7 @@ function App() {
                 >
                   <Master />
                 </Grid>
-                <Grid variant="item" width={[1 / 2, 8 / 12, 9 / 12]}>
+                <Grid variant="item" width={[1 / 2, 8 / 12, 9 / 12]} bg="dark">
                   <Route path="/comics/:id" component={Detail} />
                 </Grid>
               </Grid>

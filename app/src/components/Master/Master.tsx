@@ -13,7 +13,7 @@ function Master(){
   const { data, isLoading, loadMore }: UseComics = useComics()
   const { url } = useRouteMatch();
 
-  if (!data.length && isLoading) return <Loader size="big" color="secondary"/>
+  if (!data.length && isLoading) return <Loader big color="secondary"/>
 
   return (
     <>
