@@ -7,12 +7,13 @@ import {Ul, Li} from '../UI/Lists'
 import Link from '../UI/Link'
 import Button from '../UI/Button'
 import Grid from '../UI/Grid'
+import Loader from '../UI/Loader'
 
 function Master(){
   const { data, isLoading, loadMore }: UseComics = useComics()
   const { url } = useRouteMatch();
 
-  if (!data.length && isLoading) return <span>Is Loading....</span>
+  if (!data.length && isLoading) return <Loader size="big" color="secondary"/>
 
   return (
     <>

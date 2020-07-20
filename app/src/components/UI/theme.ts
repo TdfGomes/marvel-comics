@@ -6,7 +6,17 @@ const mediaQueries = {
   large: `@media screen and (min-width: ${breakpoints[2]})`,
 }
 
-const colors = {
+export interface Colors {
+  white: string,
+  dark: string,
+  text: string,
+  primary: string,
+  secondary: string,
+  orange: string,
+  transparent: string,
+}
+
+export const colors: Colors = {
   white: '#fff',
   dark: '#202020',
   text: '#eeeeee',

@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components'
+import { Colors, colors } from './theme'
 
 const rotate = keyframes`
   0% {
@@ -11,39 +12,49 @@ const rotate = keyframes`
 
 const loading = keyframes`
 0%{
-    box-shadow: 0 -0.83rem 0 -0.4rem, 0 -0.83rem 0 -0.42rem, 0 -0.83rem 0 -0.44rem, 0 -0.83rem 0 -0.46rem, 0 -0.83rem 0 -0.477rem;
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
 }
 5%,
   95%{
-    box-shadow: 0 -0.83rem 0 -0.4rem, 0 -0.83rem 0 -0.42rem, 0 -0.83rem 0 -0.44rem, 0 -0.83rem 0 -0.46rem, 0 -0.83rem 0 -0.477rem;
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
   }
 10%,
   59%{
-    box-shadow: 0 -0.83rem 0 -0.4rem, -0.087rem -0.825rem 0 -0.42rem, -0.173rem -0.812rem 0 -0.44rem, -0.256rem -0.789rem 0 -0.46rem, -0.297rem -0.775rem 0 -0.477rem;
+    box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
   }
 20%{
-  box-shadow: 0 -0.83rem 0 -0.4rem, -0.338rem -0.758rem 0 -0.42rem, -0.555rem -0.617rem 0 -0.44rem, -0.671rem -0.488rem 0 -0.46rem, -0.749rem -0.34rem 0 -0.477rem;
+  box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
   }
 38%{
-  box-shadow: 0 -0.83rem 0 -0.4rem, -0.377rem -0.74rem 0 -0.42rem, -0.645rem -0.522rem 0 -0.44rem, -0.775rem -0.297rem 0 -0.46rem, -0.82rem -0.09rem 0 -0.477rem;
+  box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
   }
 100%{
-  box-shadow: 0 -0.83rem 0 -0.4rem, 0 -0.83rem 0 -0.42rem, 0 -0.83rem 0 -0.44rem, 0 -0.83rem 0 -0.46rem, 0 -0.83rem 0 -0.477rem;
+  box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
   }
 `
 
+interface LoadderProps{
+  size?: String
+  color?: keyof Colors
+}
 
-const Loader = styled('div')`
-  color: #ffffff;
-  font-size: 1rem;
-  text-indent: -9999rem;
+const Loader = styled('div')<LoadderProps>`
+  color: ${(props) => props.color && colors[props.color]};
+  font-size: ${(props) => props.size === "big" ? "2em" : "1em" };
+  text-indent: -9999em;
   overflow: hidden;
-  width: 1rem;
-  height: 1rem;
+  width: 1em;
+  height: 1em;
   border-radius: 50%;
   position: relative;
   transform: translateZ(0);
   animation: ${loading} 1.7s infinite ease, ${rotate} 1.7s infinite ease;
 `
+
+Loader.defaultProps = {
+  color: "white"
+}
+
+
 
 export default Loader
