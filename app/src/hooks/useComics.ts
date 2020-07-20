@@ -4,7 +4,7 @@ import { API_URL } from '../utils/constants'
 import { Comic, UseComics } from './Comic'
 
 export function useComics(): UseComics{
-  const [isLoading,setLoading] = useState(true)
+  const [isLoading, setLoading] = useState(true)
   const [offset, setOffset] = useState(0)
   const [comics, setComics] = useState<Comic[]>([])
   
@@ -23,6 +23,7 @@ export function useComics(): UseComics{
   }, [offset])
 
   function loadMore(){
+    setLoading(true)
     setOffset(20 + offset)
   }
   

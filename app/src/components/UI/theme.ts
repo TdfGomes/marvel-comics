@@ -5,23 +5,23 @@ const mediaQueries = {
   medium: `@media screen and (min-width: ${breakpoints[1]})`,
   large: `@media screen and (min-width: ${breakpoints[2]})`,
 }
+
+const colors = {
+  white: '#fff',
+  dark: '#202020',
+  text: '#eeeeee',
+  primary: '#aa0605',
+  secondary: '#fbca03',
+  orange: '#b97c10',
+  transparent: 'transparent',
+}
   
 const theme = {
   fonts: {
-    lobster: `"Lobster Two", cursive`,
-    serif: `"Times New Roman", Times, serif;`,
-    sansSerif: `Arial, Helvetica, sans-serif;`,
+    robotoCondensed: '"Roboto Condensed", sans-serif',
     monospace: `"Courier New", Courier, monospace`,
   },
-  colors: {
-    white: '#fff',
-    lightGrey: '#eee',
-    yellow: '#ffeeba',
-    blue: 'rgb(97, 218, 251)',
-    text: '#333333',
-    primary: '#AA00CC',
-    secondary: '#d1ecf1',
-  },
+  colors,
   radii: [0, 2, 4, 16],
   space: [
     '0rem', // 0
@@ -54,15 +54,21 @@ const theme = {
   ],
   fontWeights: {
     normal: '400',
-    bold: '800',
+    bold: '700',
   },
   shadows: {
     thin: '0 2px 2px 0 rgba(0, 0, 0, 0.45), 0 0 2px 0 rgba(0, 0, 0, 0.12)',
     light: '0 18px 29px -2px rgba(0, 0, 0, 0.26)',
     bold: 'rgb(74, 74, 74) 0px 0px 1px',
   },
+  borderWidths:[1,2,3],
+  borderStyles: {
+    contained: 'none',
+    outline: 'solid',
+  },
   breakpoints,
-  mediaQueries
+  mediaQueries,
+  transitions: "all 350ms"
 }
 
 export default theme

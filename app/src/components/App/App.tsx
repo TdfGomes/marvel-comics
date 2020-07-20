@@ -12,14 +12,14 @@ function App() {
         <div className="app_container">
           <Switch>
             <Route path="/comics">
-              <Grid variant="container" width={1}>
+              <Grid variant="container" width={1} minHeight='100vh'>
                 <Grid
                   variant="item"
                   width={[1 / 2, 4 / 12, 3 / 12]}
                   overflowX="auto"
                   overflowY="scroll"
                   height="100vh"
-                  bg="lightGrey"
+                  bg="primary"
                 >
                   <Master />
                 </Grid>

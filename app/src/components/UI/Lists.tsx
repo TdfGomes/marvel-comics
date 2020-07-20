@@ -4,8 +4,8 @@ import styled from 'styled-components'
 
 const BaseUl = styled(Box)`
   padding:0;
-  margin: ${({theme}) => `${theme.space[4]} 0 0;`}
-  listStyle: 'none';
+  margin: ${({theme}) => `${theme.space[4]} 0 0`};
+  list-style: none;
 `
 
 const BaseLi = styled(Box)``

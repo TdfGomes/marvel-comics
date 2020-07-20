@@ -18,7 +18,7 @@ const StyledLink = styled(Box)({
 const Link = (props:any) => <StyledLink {...props} />
 
 Link.defaultProps = {
-  color: 'text',
+  color: 'white',
   as: GenericLink,
 }
 
