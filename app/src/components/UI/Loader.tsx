@@ -34,13 +34,13 @@ const loading = keyframes`
 `
 
 interface LoadderProps{
-  size?: String
+  big?: Boolean
   color?: keyof Colors
 }
 
 const Loader = styled('div')<LoadderProps>`
   color: ${(props) => props.color && colors[props.color]};
-  font-size: ${(props) => props.size === "big" ? "2em" : "1em" };
+  font-size: ${(props) => props.big ? "2em" : "1em" };
   text-indent: -9999em;
   overflow: hidden;
   width: 1em;
