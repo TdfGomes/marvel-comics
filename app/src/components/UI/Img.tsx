@@ -1,14 +1,17 @@
 import styled from 'styled-components'
 import Box, {BoxProps} from './Box'
 
-interface ImgProps extends BoxProps{
+interface StyledImgProps extends BoxProps{
   src: string
   alt: string
 }
 
-const Img = styled(Box)<ImgProps>``
+const Img = styled(Box)<StyledImgProps>`
+  max-width:100%;
+`
 
-Img.defaultProps ={
+Img.defaultProps = {
+  padding: 2,
   as: 'img'
 }
 

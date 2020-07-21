@@ -2,6 +2,9 @@ import React from 'react'
 import {useParams} from 'react-router-dom'
 import {useComic} from '../../hooks'
 import {Comic, UseComic} from '../../hooks/Comic'
+
+import CreatorsList from './CreatorsList'
+
 import Loader from '../UI/Loader'
 import { Title } from '../UI/Typoraphy'
 import Grid from '../UI/Grid'
@@ -14,15 +17,16 @@ function Detail(){
   
   if (isLoading) return <Loader big color="primary"/>
   
-  const { title, thumbnail}:Comic = data[0]
+  const { title, thumbnail, creators}:Comic = data[0]
 
   return (
-    <Grid variant="container">
+    <Grid variant="container" as="section">
       <Grid width={[1, 3/12]}>
-        <Img src={thumbnail.path} alt={title}/>
+        <Img src={`${thumbnail.path}.${thumbnail.extension}`} alt={title}/>
       </Grid>
       <Grid width={[1, 9/12]}>
         <Title>{title}</Title>
+        <CreatorsList creators={creators.items} />
       </Grid>
     </Grid>
   )

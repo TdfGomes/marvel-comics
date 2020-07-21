@@ -19,7 +19,11 @@ function Master(){
     <>
       <Ul>
         {data.map(({ id, title }: Comic, idx) => (
-          <Li key={`${idx}/${id}`}>
+          <Li
+            paddingY={1}
+            paddingX={5}
+            key={`${idx}/${id}`}
+          >
             <Link 
               fontSize={4}
               to={`${url}/${id}`}

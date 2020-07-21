@@ -14,6 +14,15 @@ export interface URL {
   url: string
 }
 
+export interface Creator {
+  name: string,
+  role: string
+}
+
+export interface CreatorsList {
+  items: Creator[]
+}
+
 export interface Comic {
   id: number
   description: string
@@ -21,7 +30,8 @@ export interface Comic {
   prices: Price[]
   images: Image[]
   thumbnail: Image
-  urls: URL[]
+  urls: URL[],
+  creators: CreatorsList
 }
 export interface UseComic {
   isLoading: Boolean
