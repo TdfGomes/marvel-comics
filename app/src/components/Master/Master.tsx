@@ -24,10 +24,7 @@ function Master(){
             paddingX={5}
             key={`${idx}/${id}`}
           >
-            <Link 
-              fontSize={4}
-              to={`${url}/${id}`}
-            >{title}</Link>
+            <Link fontSize={4} to={`${url}/${id}`}>{title}</Link>
           </Li>
         ))}
       </Ul>
