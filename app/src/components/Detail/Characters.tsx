@@ -13,7 +13,7 @@ interface CharactersProps {
 
 function Characters({characters}:CharactersProps){
   const {data, isLoading}:UseCharacters = useCharacters(characters)
-  
+
   return (
     <>
       <SectionTitle
@@ -25,6 +25,7 @@ function Characters({characters}:CharactersProps){
         Characters:
       </SectionTitle>
       {isLoading && <Loader color="primary" />}
+      {(!isLoading && !data.length) && <P fontSize={2}>No Characters were found!</P>}
       <Grid variant="container">
         {data.map(({ thumbnail: {path, extension}, name},idx) => (
           <Grid variant="item" key={idx}>

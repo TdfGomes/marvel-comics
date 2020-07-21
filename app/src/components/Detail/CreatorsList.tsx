@@ -29,6 +29,7 @@ function CreactorsList({ creators }: CreatorsListProps){
     >
       Creators:
     </SectionTitle>
+    {!creators.length && <P>No Creators were found!</P>}
     <Ul marginTop={0}>
       {Object.keys(creatorsByRole).map(role => (
         <Li key={role} color="text" marginBottom={4}>
