@@ -33,6 +33,9 @@ const theme = {
   },
   colors,
   radii: [0, 2, 4, 16],
+  sizes:{
+    thumbnail: '150px'
+  },
   space: [
     '0rem', // 0
     '0.625rem', // 1

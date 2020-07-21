@@ -23,6 +23,15 @@ export interface CreatorsList {
   items: Creator[]
 }
 
+export interface Character {
+  name: string,
+  resourceURI: string
+}
+
+export interface CharactersList {
+  items: Character[]
+}
+
 export interface Comic {
   id: number
   description: string
@@ -32,6 +41,7 @@ export interface Comic {
   thumbnail: Image
   urls: URL[],
   creators: CreatorsList
+  characters: CharactersList
 }
 export interface UseComic {
   isLoading: Boolean
@@ -41,9 +51,20 @@ export interface UseComics extends UseComic {
   offset: number
   loadMore: Function
 }
-export interface ApiResponse {
-  offset: number
-  limit: number
-  total: number
-  results: Comic[]
+
+export interface CharactersData{
+  thumbnail: Image
+  name: string,
+}
+export interface UseCharacters {
+  data: CharactersData[],
+  isLoading: Boolean
+}
+export interface ApiResponse<T> {
+  data: {
+    offset: number
+    limit: number
+    total: number
+    results: T[]
+  }
 }
