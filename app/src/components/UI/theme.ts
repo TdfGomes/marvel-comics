@@ -34,17 +34,19 @@ const theme = {
   colors,
   radii: [0, 2, 4, 16],
   sizes:{
+    small: '5rem',
     thumbnail: '150px'
   },
   space: [
     '0rem', // 0
-    '0.625rem', // 1
-    '0.9rem', // 2
-    '1rem', // 3
-    '1.5rem', // 4
-    '2rem', // 5
-    '3rem', // 6
-    '4rem', // 7
+    '0.325rem', // 1
+    '0.625rem', // 2
+    '0.9rem', // 3
+    '1rem', // 4
+    '1.5rem', // 5
+    '2rem', // 6
+    '3rem', // 7
+    '4rem', // 8
   ],
   fontSizes: [
     '0.8rem', // 0

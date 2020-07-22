@@ -49,7 +49,7 @@ export interface UseComic {
 }
 export interface UseComics extends UseComic {
   offset: number
-  loadMore: Function
+  loadMore: () => void
 }
 
 export interface CharactersData{

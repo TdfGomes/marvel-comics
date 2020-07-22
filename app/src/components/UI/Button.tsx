@@ -58,10 +58,11 @@ interface ButtonProps {
 }
 
 function Button({isLoading,children, ...rest}:ButtonProps){
-  
-  return <StyledBtn {...rest} as="button">{
-    isLoading ? <Loader aria-label="loading"/> : children
-  }</StyledBtn>
+  return (
+    <StyledBtn {...rest} as="button">
+      {isLoading ? <Loader aria-label="loading"/> : children}
+    </StyledBtn>
+  )
 }
 
 

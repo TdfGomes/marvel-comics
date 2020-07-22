@@ -8,6 +8,11 @@ export function useComics(): UseComics{
   const [offset, setOffset] = useState(0)
   const [comics, setComics] = useState<Comic[]>([])
   
+  function loadMore() {
+    setLoading(true)
+    setOffset(20 + offset)
+  }
+
   useEffect(() => {
     async function getComics() {
       const response = await fetch(`${API_URL}/comics?offset=${offset}`)
@@ -22,10 +27,8 @@ export function useComics(): UseComics{
     getComics()
   }, [offset])
 
-  function loadMore(){
-    setLoading(true)
-    setOffset(20 + offset)
-  }
+ 
+  
   
   return { isLoading, data: comics, offset, loadMore }
 }
