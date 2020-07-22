@@ -1,19 +1,19 @@
 import React from 'react' 
-import Select from '../UI/Select'
+import Select, { SelectValueType, Option } from '../UI/Select'
 
 interface UserActionsProps {
-  sort: (s:string) => void
+  sort: (value:SelectValueType) => void
 }
 
-const options = [
+const options: Option[] = [
   { label: 'A > Z', value: 'asc' },
-  { label: 'Z > A', value: 'desc' }
+  { label: 'Z > A', value: 'desc' },
 ]
 
 function UserActions({sort}:UserActionsProps){
   
-  const handleChange = (e:string) => {
-    sort(e)
+  const handleChange = (value: SelectValueType) => {
+    sort(value)
   }
   
   return (
