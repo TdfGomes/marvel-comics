@@ -1,50 +1,83 @@
-import React, { useState, useCallback, useEffect } from 'react'
-import styled from 'styled-components'
-import Box, { BoxProps } from './Box'
+import React from 'react'
+import RSelect, { ValueType } from 'react-select'
+import {colors, borderStyles, borderWidths, sizes, radii, space,fontSizes,lineHeights } from './theme'
 
 
-const StyledSelect = styled(Box)<BoxProps>({
-  outline:"none"
-})
-
-interface SelectProps {
-  options: {label:string,value:string}[]
-  onChange: (value:string) => void
+const styles = {
+  control: (provided: any) => ({
+    ...provided,
+    width: sizes['medium'],
+    paddingTop: space[1],
+    paddingBottom: space[1],
+    fontSize: fontSizes[2],
+    lineHeight: lineHeights[1],
+    borderStyle: borderStyles['outline'],
+    borderWidth: borderWidths[1],
+    borderColor: colors['secondary'],
+    backgroundColor: colors['transparent'],
+    color: colors['text'],
+    borderRadius: radii[0],
+    outline: 'none',
+    boxShadow: 'none',
+    '&:hover': {
+      borderColor: colors['text'],
+    },
+  }),
+  menu: (provided: any) => ({
+    ...provided,
+    width: sizes['medium'],
+    boxShadow: 'none',
+    borderRadius: radii[0],
+  }),
+  option: (provided: any, state: any) => ({
+    ...provided,
+    backgroundColor: state.isSelected
+      ? colors['secondary']
+      : state.isFocused
+        ? colors['lemon']
+        : colors['transparent'],
+      '&:active':{
+        backgroundColor:colors['orange'],
+        color: colors['text'],
+      },
+    color: state.isSelected ? colors['text'] : colors['dark'],
+  }),
+  placeholder: (provided: any) => ({
+    ...provided,
+    color: colors['text'],
+  }),
+  dropdownIndicator: (provided: any) => ({
+    ...provided,
+    color: colors['text'],
+  }),
+  singleValue: (provided: any) => ({
+    ...provided,
+    color: colors['text'],
+  }),
+  indicatorSeparator: () => ({}),
+}
+export type SelectValueType = ValueType<Option>
+export interface Option {
+  label: string
+  value: string 
+}
+interface SelectProps{
+  options: Option[]
+  onChange: (value:SelectValueType) => void
 }
 
 function Select({options,onChange, ...rest}:SelectProps){
-  const [state, setState] = useState('')
-  const onChangeMemo = useCallback(onChange,[])
 
-  useEffect(() => {
-    onChangeMemo(state)
-  }, [state, onChangeMemo])
-
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    e.preventDefault()
-    setState(e.target.value)
+  const handleChange = (value: SelectValueType) => {
+    onChange(value)
   }
 
   return (
-    <StyledSelect {...rest}
+    <RSelect {...rest}
       onChange={handleChange}
-      as="select"
-      width="small"
-      paddingY={1}
-      paddingX={2}
-      fontSize={2}
-      lineHeight={1}
-      borderStyle='outline'
-      borderWidth={1}
-      borderColor="secondary"
-      backgroundColor="transparent"
-      color="text"
-      borderRadius={0}
-    >
-      {options.map(({label,value}) => (
-        <option key={value} value={value}>{label}</option>
-      ))}
-    </StyledSelect>
+      options={options}
+      styles={styles}
+    />
   )
 }
 
