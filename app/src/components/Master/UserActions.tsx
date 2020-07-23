@@ -26,7 +26,7 @@ const filterOptions: Option[] = [
   { label: 'Beast', value: 'Beast' },
   { label: 'Cyclops', value: 'Cyclops' },
   { label: 'Wolverine', value: 'Wolverine' },
-  { label: 'Wolverine', value: 'Wolverine' },
+  { label: 'Red Skull', value: 'Red Skull' },
   { label: 'Emma Frost', value: 'Emma Frost' },
   { label: 'Iron Man', value: 'Iron Man' },
 ]
