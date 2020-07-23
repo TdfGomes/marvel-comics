@@ -1,5 +1,6 @@
 import express from 'express'
 import { createProxyMiddleware, Options } from 'http-proxy-middleware'
+import path from 'path'
 import crypto from 'crypto'
 import cors from 'cors'
 import './lib'
@@ -26,4 +27,13 @@ const options: Options = {
 
 app.use(cors())
 app.use('/api', createProxyMiddleware(options))
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'app/build')))
+
+  app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'app/build', 'index.html'))
+  })
+}
+
 app.listen(8000)
