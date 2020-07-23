@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import { ThemeProvider } from '../UI'
 import Master from '../Master'
 import Detail from '../Detail'
@@ -11,6 +11,7 @@ function App() {
       <Router>
         <div className="app_container">
           <Switch>
+            <Redirect exact from="/" to="/comics" />
             <Route path="/comics">
               <Grid variant="container" width={1} minHeight="100vh">
                 <Grid
