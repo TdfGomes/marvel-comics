@@ -32,5 +32,6 @@ P.defaultProps = {
   color:"text",
   fontSize:2,
   fontWeight:'normal',
-  marginY:0
+  marginTop:0,
+  marginBottom:0
 }

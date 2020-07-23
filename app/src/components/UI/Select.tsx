@@ -1,12 +1,11 @@
 import React from 'react'
-import RSelect, { ValueType } from 'react-select'
-import {colors, borderStyles, borderWidths, sizes, radii, space,fontSizes,lineHeights } from './theme'
+import RSelect, { ValueType, Props } from 'react-select'
+import {colors, borderStyles, borderWidths, radii, space,fontSizes,lineHeights } from './theme'
 
 
 const styles = {
   control: (provided: any) => ({
     ...provided,
-    width: sizes['medium'],
     paddingTop: space[1],
     paddingBottom: space[1],
     fontSize: fontSizes[2],
@@ -25,7 +24,6 @@ const styles = {
   }),
   menu: (provided: any) => ({
     ...provided,
-    width: sizes['medium'],
     boxShadow: 'none',
     borderRadius: radii[0],
   }),
@@ -56,26 +54,27 @@ const styles = {
   }),
   indicatorSeparator: () => ({}),
 }
-export type SelectValueType = ValueType<Option>
+export type SelectValueType = ValueType<Option | Option[]>
 export interface Option {
   label: string
   value: string 
 }
-interface SelectProps{
-  options: Option[]
+interface SelectProps extends Props{
   onChange: (value:SelectValueType) => void
 }
 
-function Select({options,onChange, ...rest}:SelectProps){
-
+function Select({
+  onChange,
+  ...rest
+}: SelectProps) {
   const handleChange = (value: SelectValueType) => {
     onChange(value)
   }
 
   return (
-    <RSelect {...rest}
+    <RSelect
+      {...rest}
       onChange={handleChange}
-      options={options}
       styles={styles}
     />
   )

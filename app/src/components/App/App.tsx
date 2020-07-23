@@ -15,7 +15,7 @@ function App() {
               <Grid variant="container" width={1} minHeight='100vh'>
                 <Grid
                   variant="item"
-                  width={[1 / 2, 4 / 12, 3 / 12]}
+                  width={[1 / 2, null, 4 / 12]}
                   overflowX="auto"
                   overflowY="scroll"
                   height="100vh"
@@ -25,7 +25,7 @@ function App() {
                 </Grid>
                 <Grid 
                   variant="item"
-                  width={[1 / 2, 8 / 12, 9 / 12]}
+                  width={[1 / 2, null, 8 / 12]}
                   overflowX="auto"
                   overflowY="scroll"
                   height="100vh"
