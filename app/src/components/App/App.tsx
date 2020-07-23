@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import {  ThemeProvider } from '../UI'
+import { ThemeProvider } from '../UI'
 import Master from '../Master'
 import Detail from '../Detail'
 import Grid from '../UI/Grid'
@@ -12,7 +12,7 @@ function App() {
         <div className="app_container">
           <Switch>
             <Route path="/comics">
-              <Grid variant="container" width={1} minHeight='100vh'>
+              <Grid variant="container" width={1} minHeight="100vh">
                 <Grid
                   variant="item"
                   width={[1 / 2, null, 4 / 12]}
@@ -23,7 +23,7 @@ function App() {
                 >
                   <Master />
                 </Grid>
-                <Grid 
+                <Grid
                   variant="item"
                   width={[1 / 2, null, 8 / 12]}
                   overflowX="auto"
@@ -42,4 +42,4 @@ function App() {
   )
 }
 
-export default App;
+export default App

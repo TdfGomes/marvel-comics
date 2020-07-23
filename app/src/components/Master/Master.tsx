@@ -1,39 +1,43 @@
 import React, { useState } from 'react'
-import {useRouteMatch} from 'react-router-dom'
+import { useRouteMatch } from 'react-router-dom'
 import { useComics } from '../../hooks'
 import { Comic, UseComics } from '../../hooks/Comic'
 import UserActions from './UserActions'
 
-import {Ul, Li} from '../UI/Lists'
+import { Ul, Li } from '../UI/Lists'
 import Link from '../UI/Link'
 import Button from '../UI/Button'
 import Grid from '../UI/Grid'
 import Loader from '../UI/Loader'
 
 import compose from '../../utils/compose'
-import { sortingOptions, filterComics, sortByTitle } from '../../utils/sortFilter'
+import {
+  sortingOptions,
+  filterComics,
+  sortByTitle,
+} from '../../utils/sortFilter'
 
-function Master(){
+function Master() {
   const { data, isLoading, loadMore }: UseComics = useComics()
-  const { url } = useRouteMatch();
+  const { url } = useRouteMatch()
   const [sortOpt, setSortOpt] = useState<string>('asc')
   const [filterOpts, setFilterOpts] = useState<string[]>([])
-  
-  function handleSort(opt:any){
+
+  function handleSort(opt: any) {
     setSortOpt(opt)
   }
-  
-  function handleFilter(opt:any){
+
+  function handleFilter(opt: any) {
     setFilterOpts(opt)
   }
-  
+
   const dataFiltered = filterComics(filterOpts)
   const dataSorted = sortByTitle(sortingOptions[sortOpt])
   const dataToRender: Comic[] = compose(dataFiltered, dataSorted)(data)
 
   return (
     <>
-      <UserActions sort={handleSort} filter={handleFilter}/>
+      <UserActions sort={handleSort} filter={handleFilter} />
       {!dataToRender.length && isLoading && <Loader big color="secondary" />}
       <Ul>
         {dataToRender.map(({ id, title }: Comic, idx) => (
@@ -53,8 +57,6 @@ function Master(){
       )}
     </>
   )
-    
-  
 }
 
 export default Master

@@ -1,12 +1,11 @@
-import React from 'react' 
+import React from 'react'
 import Select, { SelectValueType, Option } from '../UI/Select'
 import Grid from '../UI/Grid'
 import { P } from '../UI/Typoraphy'
 
-
 interface UserActionsProps {
-  sort?: (value:SelectValueType) => void
-  filter?: (value:string[]) => void
+  sort?: (value: SelectValueType) => void
+  filter?: (value: string[]) => void
 }
 
 const sortOptions: Option[] = [
@@ -32,20 +31,19 @@ const filterOptions: Option[] = [
   { label: 'Iron Man', value: 'Iron Man' },
 ]
 
-function UserActions({sort, filter}:UserActionsProps){
-  
+function UserActions({ sort, filter }: UserActionsProps) {
   const handleSort = (value: any) => {
-    if(sort) {
+    if (sort) {
       sort(value.value)
     }
   }
   const handleFilter = (values: any) => {
     if (filter) {
-      const charatersName = values.map(({value}:any) => value)
+      const charatersName = values.map(({ value }: any) => value)
       filter(charatersName)
     }
   }
-  
+
   return (
     <Grid
       variant="container"
@@ -74,4 +72,4 @@ function UserActions({sort, filter}:UserActionsProps){
   )
 }
 
-export default UserActions  
+export default UserActions

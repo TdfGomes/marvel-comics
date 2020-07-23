@@ -16,7 +16,5 @@ export const filterByCharacter = (terms: string[]) => (a: Comic) => {
 export const filterComics = (terms: string[]) => (arr: Comic[]) =>
   !terms.length ? arr : arr.filter(filterByCharacter(terms))
 
-export const sortByTitle = (fn: any) => (arr: Comic[]) => (!fn ? arr : arr.sort(fn))
-
-
-
+export const sortByTitle = (fn: any) => (arr: Comic[]) =>
+  !fn ? arr : arr.sort(fn)

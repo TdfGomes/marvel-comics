@@ -1,12 +1,12 @@
 import React from 'react'
-import Box, {BoxProps} from './Box'
+import Box, { BoxProps } from './Box'
 import styled from 'styled-components'
 import { variant } from 'styled-system'
 import Loader from './Loader'
 
-type Variants = "primary" | "secondary"
+type Variants = 'primary' | 'secondary'
 
-interface StyledBtnProps extends BoxProps{
+interface StyledBtnProps extends BoxProps {
   variant?: Variants
 }
 
@@ -14,7 +14,7 @@ const StyledBtn = styled(Box)<StyledBtnProps>(
   {
     transition: 'all 200ms ease-in-out',
     textTransform: 'uppercase',
-    outline: 'none'
+    outline: 'none',
   },
   variant({
     variants: {
@@ -32,7 +32,7 @@ const StyledBtn = styled(Box)<StyledBtnProps>(
         bg: 'primary',
         color: 'text',
         '&:hover': {
-          borderColor:'secondary',
+          borderColor: 'secondary',
           color: 'secondary',
           bg: 'transparent',
         },
@@ -57,13 +57,12 @@ interface ButtonProps {
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-function Button({isLoading,children, ...rest}:ButtonProps){
+function Button({ isLoading, children, ...rest }: ButtonProps) {
   return (
     <StyledBtn {...rest} as="button">
-      {isLoading ? <Loader aria-label="loading"/> : children}
+      {isLoading ? <Loader aria-label="loading" /> : children}
     </StyledBtn>
   )
 }
-
 
 export default Button

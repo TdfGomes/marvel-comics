@@ -1,4 +1,3 @@
-
 export interface Price {
   price: number
   type: string
@@ -15,7 +14,7 @@ export interface URL {
 }
 
 export interface Creator {
-  name: string,
+  name: string
   role: string
 }
 
@@ -24,7 +23,7 @@ export interface CreatorsList {
 }
 
 export interface Character {
-  name: string,
+  name: string
   resourceURI: string
 }
 
@@ -39,25 +38,25 @@ export interface Comic {
   prices: Price[]
   images: Image[]
   thumbnail: Image
-  urls: URL[],
+  urls: URL[]
   creators: CreatorsList
   characters: CharactersList
 }
 export interface UseComic {
   isLoading: Boolean
-  data: Comic[] 
+  data: Comic[]
 }
 export interface UseComics extends UseComic {
   offset: number
   loadMore: () => void
 }
 
-export interface CharactersData{
+export interface CharactersData {
   thumbnail: Image
-  name: string,
+  name: string
 }
 export interface UseCharacters {
-  data: CharactersData[],
+  data: CharactersData[]
   isLoading: Boolean
 }
 export interface ApiResponse<T> {

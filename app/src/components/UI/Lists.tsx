@@ -7,13 +7,13 @@ interface ListProps extends BoxProps {
 }
 
 const BaseUl = styled(Box)<BoxProps>`
-  padding:0;
+  padding: 0;
   list-style: none;
 `
 
 const BaseLi = styled(Box)<BoxProps>``
 
-export function Ul({children, ...rest}:ListProps) {
+export function Ul({ children, ...rest }: ListProps) {
   return <BaseUl {...rest}>{children}</BaseUl>
 }
 
@@ -28,6 +28,3 @@ export function Li({ children, ...rest }: ListProps) {
 Li.defaultProps = {
   as: 'li',
 }
-
-
-

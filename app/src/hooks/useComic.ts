@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { API_URL } from '../utils/constants'
 import { Comic, UseComic } from './Comic'
 
-export function useComic(id:number): UseComic {
+export function useComic(id: number): UseComic {
   const [isLoading, setLoading] = useState(true)
   const [comics, setComics] = useState<Comic[]>([])
   useEffect(() => {

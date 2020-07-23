@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from "styled-components";
+import styled from 'styled-components'
 import {
   space,
   SpaceProps,
@@ -15,18 +15,19 @@ import {
   LayoutProps,
   position,
   PositionProps,
-  compose
-} from "styled-system";
+  compose,
+} from 'styled-system'
 
 const css = compose(space, color, typography, border, shadow, layout, position)
 
-export interface BoxProps extends SpaceProps,
-ColorProps,
-TypographyProps,
-BorderProps,
-ShadowProps,
-LayoutProps,
-PositionProps{
+export interface BoxProps
+  extends SpaceProps,
+    ColorProps,
+    TypographyProps,
+    BorderProps,
+    ShadowProps,
+    LayoutProps,
+    PositionProps {
   as?: React.ElementType | keyof JSX.IntrinsicElements
 }
 

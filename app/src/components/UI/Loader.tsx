@@ -33,14 +33,14 @@ const loading = keyframes`
   }
 `
 
-interface LoadderProps{
+interface LoadderProps {
   big?: Boolean
   color?: keyof Colors
 }
 
 const Loader = styled('div')<LoadderProps>`
   color: ${(props) => props.color && colors[props.color]};
-  font-size: ${(props) => props.big ? "2em" : "1em" };
+  font-size: ${(props) => (props.big ? '2em' : '1em')};
   text-indent: -9999em;
   overflow: hidden;
   width: 1em;
@@ -52,9 +52,7 @@ const Loader = styled('div')<LoadderProps>`
 `
 
 Loader.defaultProps = {
-  color: "white"
+  color: 'white',
 }
-
-
 
 export default Loader

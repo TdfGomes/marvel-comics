@@ -1,10 +1,15 @@
 import styled from 'styled-components'
-import { flexbox, FlexProps,  variant } from 'styled-system'
+import { flexbox, FlexProps, variant } from 'styled-system'
 import Box, { BoxProps } from './Box'
 
-type Variants = "container" | "item"
-type JustifyContent = "center" | "space-around" | "space-between" | "flex-start" | "flex-end"
-type AlignContent = "center" | "flex-start" | "flex-end"
+type Variants = 'container' | 'item'
+type JustifyContent =
+  | 'center'
+  | 'space-around'
+  | 'space-between'
+  | 'flex-start'
+  | 'flex-end'
+type AlignContent = 'center' | 'flex-start' | 'flex-end'
 
 interface GridProps extends FlexProps, BoxProps {
   alignContent?: AlignContent
@@ -17,13 +22,13 @@ const Grid = styled(Box)<GridProps>(
   variant({
     variants: {
       container: {
-        display: 'flex'
+        display: 'flex',
       },
       item: {
-        padding:2
+        padding: 2,
       },
     },
   })
 )
-  
+
 export default Grid

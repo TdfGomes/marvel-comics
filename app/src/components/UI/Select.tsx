@@ -1,7 +1,14 @@
 import React from 'react'
 import RSelect, { ValueType, Props } from 'react-select'
-import {colors, borderStyles, borderWidths, radii, space,fontSizes,lineHeights } from './theme'
-
+import {
+  colors,
+  borderStyles,
+  borderWidths,
+  radii,
+  space,
+  fontSizes,
+  lineHeights,
+} from './theme'
 
 const styles = {
   control: (provided: any) => ({
@@ -32,12 +39,12 @@ const styles = {
     backgroundColor: state.isSelected
       ? colors['secondary']
       : state.isFocused
-        ? colors['lemon']
-        : colors['transparent'],
-      '&:active':{
-        backgroundColor:colors['orange'],
-        color: colors['text'],
-      },
+      ? colors['lemon']
+      : colors['transparent'],
+    '&:active': {
+      backgroundColor: colors['orange'],
+      color: colors['text'],
+    },
     color: state.isSelected ? colors['text'] : colors['dark'],
   }),
   placeholder: (provided: any) => ({
@@ -57,28 +64,18 @@ const styles = {
 export type SelectValueType = ValueType<Option | Option[]>
 export interface Option {
   label: string
-  value: string 
+  value: string
 }
-interface SelectProps extends Props{
-  onChange: (value:SelectValueType) => void
+interface SelectProps extends Props {
+  onChange: (value: SelectValueType) => void
 }
 
-function Select({
-  onChange,
-  ...rest
-}: SelectProps) {
+function Select({ onChange, ...rest }: SelectProps) {
   const handleChange = (value: SelectValueType) => {
     onChange(value)
   }
 
-  return (
-    <RSelect
-      {...rest}
-      onChange={handleChange}
-      styles={styles}
-    />
-  )
+  return <RSelect {...rest} onChange={handleChange} styles={styles} />
 }
 
 export default Select
-
