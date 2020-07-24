@@ -29,10 +29,11 @@ app.use(cors())
 app.use('/api', createProxyMiddleware(options))
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'app/build')))
+  console.log('====>PRODUCTION<====')
+  app.use(express.static(path.join(__dirname, '../../app/build')))
 
   app.get('*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'app/build', 'index.html'))
+    res.sendFile(path.join(__dirname, '../../app/build', 'index.html'))
   })
 }
 
