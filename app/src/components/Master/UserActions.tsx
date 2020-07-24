@@ -1,7 +1,7 @@
 import React from 'react'
 import Select, { SelectValueType, Option } from '../UI/Select'
 import Grid from '../UI/Grid'
-import { P } from '../UI/Typoraphy'
+import { Label } from '../UI/Typoraphy'
 
 interface UserActionsProps {
   sort?: (value: SelectValueType) => void
@@ -15,7 +15,7 @@ const sortOptions: Option[] = [
 const filterOptions: Option[] = [
   { label: 'X-Men', value: 'X-Men' },
   { label: 'Winter Soldier', value: 'Winter Soldier' },
-  { label: 'Captain America', value: 'Red Skull' },
+  { label: 'Captain America', value: 'Captain America' },
   { label: 'Sharon Carter', value: 'Sharon Carter' },
   { label: 'Crossbones', value: 'Crossbones' },
   { label: 'Sin', value: 'Sin' },
@@ -50,22 +50,28 @@ function UserActions({ sort, filter }: UserActionsProps) {
       paddingBottom={2}
       borderBottom="1px dotted"
       borderBottomColor="secondary"
+      as="form"
+      role="form"
     >
       <Grid variant="item" width={0.35}>
-        <P marginBottom={1}>Ordering by title:</P>
+        <Label htmlFor="sort">Ordering by title:</Label>
         <Select
+          name="sort"
           options={sortOptions}
           onChange={handleSort}
           defaultValue={sortOptions[0]}
+          aria-label="order-comics-list"
         />
       </Grid>
       <Grid variant="item" width={0.65}>
-        <P marginBottom={1}>Filter by your favourite characters:</P>
+        <Label htmlFor="filter">Filter by your favourite characters:</Label>
         <Select
+          name="filter"
           placeholder="Select characters"
           options={filterOptions}
           onChange={handleFilter}
           isMulti
+          aria-label="filter-comics-list"
         />
       </Grid>
     </Grid>

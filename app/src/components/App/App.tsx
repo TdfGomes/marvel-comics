@@ -5,7 +5,7 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom'
-import { ThemeProvider } from '../UI'
+import ThemeProvider from '../UI/ThemeProvider'
 import Master from '../Master'
 import Detail from '../Detail'
 import Grid from '../UI/Grid'

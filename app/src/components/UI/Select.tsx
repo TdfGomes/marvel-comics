@@ -74,7 +74,7 @@ function Select({ onChange, ...rest }: SelectProps) {
   const handleChange = (value: SelectValueType) => {
     onChange(value)
   }
-
+  
   return <RSelect {...rest} onChange={handleChange} styles={styles} />
 }
 

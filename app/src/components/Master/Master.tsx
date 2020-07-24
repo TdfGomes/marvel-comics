@@ -39,9 +39,9 @@ function Master() {
     <>
       <UserActions sort={handleSort} filter={handleFilter} />
       {!dataToRender.length && isLoading && <Loader big color="secondary" />}
-      <Ul>
+      <Ul aria-label="comic-list">
         {dataToRender.map(({ id, title }: Comic, idx) => (
-          <Li paddingY={1} paddingX={5} key={`${idx}/${id}`}>
+          <Li paddingY={1} paddingX={5} key={`${idx}/${id}`} aria-label="comic-item">
             <Link fontSize={4} to={`${url}/${id}`}>
               {title}
             </Link>

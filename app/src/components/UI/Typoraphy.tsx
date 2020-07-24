@@ -35,3 +35,19 @@ P.defaultProps = {
   marginTop: 0,
   marginBottom: 0,
 }
+
+interface LabelProps extends BoxProps {
+  htmlFor?: string
+}
+
+export const Label = styled(Box)<LabelProps>``
+
+Label.defaultProps = {
+  as: 'label',
+  color: 'text',
+  fontSize: 2,
+  fontWeight: 'normal',
+  marginTop: 0,
+  marginBottom: 1,
+  lineHeight: 1,
+}
