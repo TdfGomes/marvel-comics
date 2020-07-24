@@ -11,6 +11,8 @@ const hash: string = crypto.createHash('md5').update(data).digest('hex')
 
 const app = express()
 
+const PORT = process.env.PORT || 8000
+
 const options: Options = {
   target: 'http://gateway.marvel.com/v1/public',
   changeOrigin: true,
@@ -37,4 +39,4 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-app.listen(8000)
+app.listen(PORT, () => console.log(`gateway is running on port: ${PORT}`))
