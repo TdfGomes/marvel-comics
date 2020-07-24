@@ -3,7 +3,7 @@ import {MemoryRouter} from 'react-router-dom'
 import { render as rtlRender } from '@testing-library/react'
 import ThemeProvider from '../components/UI/ThemeProvider'
 
-function render(ui:any, {  ...options }) {
+function render(ui:any, {  ...options } = {}) {
 const Wrapper = (props: React.PropsWithChildren<{}>) => (
   <ThemeProvider>
     <MemoryRouter>

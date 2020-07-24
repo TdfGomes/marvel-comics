@@ -3,7 +3,7 @@ import { Creator } from '../../hooks/Comic'
 import { Ul, Li } from '../UI/Lists'
 import { SectionTitle, P } from '../UI/Typoraphy'
 
-interface CreatorsListProps {
+export interface CreatorsListProps {
   creators: Creator[]
 }
 
@@ -25,10 +25,10 @@ function CreactorsList({ creators }: CreatorsListProps) {
       {!creators.length && <P>No Creators were found!</P>}
       <Ul marginTop={0}>
         {Object.keys(creatorsByRole).map((role) => (
-          <Li key={role} color="text" marginBottom={4}>
-            <SectionTitle>{role}</SectionTitle>
-            <P>
-              {creatorsByRole[role].map(({ name }: any) => name).join(', ')}
+          <Li key={role} color="text" marginBottom={4} aria-label="creator=details-item">
+            <SectionTitle aria-label="creator-role">{role}</SectionTitle>
+            <P aria-label="creators-name">
+              {creatorsByRole[role].map(({ name }: any) => name).sort().join(', ')}
             </P>
           </Li>
         ))}

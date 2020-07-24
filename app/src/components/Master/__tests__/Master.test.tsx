@@ -37,7 +37,7 @@ jest.mock('../../../hooks/', () => {
 } )
 
 test('Should display comics in a list in ascending order by default', () => {
-  render(<Master/>,{})
+  render(<Master/>)
   
   const comicList = screen.queryAllByLabelText(/comic-item/i)
   expect(comicList).toHaveLength(3)
@@ -46,7 +46,7 @@ test('Should display comics in a list in ascending order by default', () => {
 })
 
 test('Should sort and filter the comic list', async () => {
-  const {container} = render(<Master/>,{})
+  const {container} = render(<Master/>)
   
   const sort = screen.getByLabelText(/order-comics-list/i)
   const filter = screen.getByLabelText(/filter-comics-list/i)
@@ -58,9 +58,7 @@ test('Should sort and filter the comic list', async () => {
   await fireEvent.change(sort, {target:{value:'Z'}})
   await fireEvent.click(container.querySelector('#react-select-4-option-1'))
   
-  expect(screen.queryAllByLabelText(/comic-item/i)[0]).toHaveTextContent(
-    /c comic/i
-    )
+  expect(screen.queryAllByLabelText(/comic-item/i)[0]).toHaveTextContent(/c comic/i)
     
   await fireEvent.change(filter, { target: { value: 'c' } })
   await fireEvent.click(container.querySelector('#react-select-5-option-2'))
