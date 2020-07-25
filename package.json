@@ -18,6 +18,7 @@
     "start:dev": "concurrently \"yarn workspace app start:dev\" \"yarn workspace server start:dev\"",
     "build": "concurrently \"yarn workspace app build\" \"yarn workspace server build\"",
     "build:clean": "concurrently \"yarn workspace app build:clean\" \"yarn workspace server build:clean\"",
-    "heroku-postbuild": "yarn build"
+    "heroku-postbuild": "yarn build",
+    "test:ci": "yarn workspace app run test --watchAll=false"
   }
 }
