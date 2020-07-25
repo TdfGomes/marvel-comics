@@ -26,10 +26,10 @@ function Characters({ characters }: CharactersProps) {
       <Grid variant="container">
         {data.map(({ thumbnail: { path, extension }, name }, idx) => (
           <Grid variant="item" key={idx}>
-            <P>{name}</P>
+            <P aria-label="character-name">{name}</P>
             <Img
               src={`${path}.${extension}`}
-              alt="character image"
+              alt={`character-image`}
               height={'thumbnail'}
             />
           </Grid>
